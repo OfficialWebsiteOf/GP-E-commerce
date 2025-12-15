@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Online Shopping</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=favorite" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="#" class="logo">
+                    <div class="logo-icon"><i class="fas fa-globe-americas"></i></div>
+                    <span>G.P Shop</span>
+                </a>
+
+                <div class="search-bar">
+                    <input type="text" id="searchBox" placeholder="Search for products, brands and more...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+
+                <div class="header-actions">
+                    <div class="header-action" onclick="showPopup('auth-modal')" id="account-link">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </div>
+
+                    <div class="header-action">
+                        <i class="fas fa-gift"></i>
+                        <span>Offers</span>
+                    </div>
+
+                    <div class="header-action" id="cart-toggle" onclick="showPopup('cart-sidebar')" style="position: relative;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <div class="cart-count">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-bottom">
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+
+                <nav class="nav-categories">
+                    <a href="#" onclick="goToPage('mainContainer')" ><i class="fas fa-home"></i> Home & Kitchen</a>
+                    <a href="#"><i class="fas fa-mobile-alt"></i> Electronics</a>
+                    <a href="#"><i class="fas fa-tshirt"></i> Fashion</a>
+                    <a href="#"><i class="fas fa-gem"></i> Beauty</a>
+                    <a href="#"><i class="fas fa-book"></i> Books</a>
+                    <a href="#"><i class="fas fa-gamepad"></i> Toys & Games</a>
+                </nav>
+
+                <div class="delivery-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Deliver to: <strong>BanglaDesh</strong></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container" id="mainContainer">
+        <!-- Hero Carousel -->
+        <section class="hero">
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="hero-content">
+                    <h2>Summer Sale - Up to 50% Off</h2>
+                    <p>Discover amazing deals on thousands of products. Limited time offer!</p>
+                    <a href="#" class="hero-btn">Shop Now</a>
+                </div>
+            </div>
+
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1555529771-7888783a18d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+                <div class="hero-content">
+                    <h2>New Electronics Collection</h2>
+                    <p>Latest gadgets and tech accessories with exclusive discounts</p>
+                    <a href="#" class="hero-btn">Explore Now</a>
+                </div>
+            </div>
+
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1605733513597-a8f8341084e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2029&q=80');">
+                <div class="hero-content">
+                    <h2>Free Shipping on Orders Over $49</h2>
+                    <p>Plus easy returns and 24/7 customer support</p>
+                    <a href="#" class="hero-btn">Learn More</a>
+                </div>
+            </div>
+
+            <div class="hero-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="category-name">Electronics</h3>
+                <p class="category-count">1,240 products</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3 class="category-name">Fashion</h3>
+                <p class="category-count">3,560 products</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3 class="category-name">Home & Kitchen</h3>
+                <p class="category-count">2,180 products</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3 class="category-name">Beauty</h3>
+                <p class="category-count">1,870 products</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3 class="category-name">Books</h3>
+                <p class="category-count">980 products</p>
+            </div>
+
+            <div class="category-card">
+                <div class="category-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3 class="category-name">Toys & Games</h3>
+                <p class="category-count">1,520 products</p>
+            </div>
+        </section>
+        <section class="products">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                <div class="product-grid" id="product-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Best Sellers -->
+        <section>
+            <div class="section-title">
+                <h2>Best Sellers</h2>
+                <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="Allprodact">
+            </div>
+        </section>
+        <!-- Features Section -->
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Free Shipping</h3>
+                    <p>On orders over $49</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Easy Returns</h3>
+                    <p>30 days return policy</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Secure Payment</h3>
+                    <p>Safe and encrypted</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated support</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="ProdactDetailsSection" id="ProdactDetailsMainDiv" style="display: none;">
+        <p>Tools & Home Improvement›Kitchen & Bath Fixtures›Kitchen Fixtures›Kitchen Sink Accessories›Drains & Strainers
+        </p>
+        <div class="ProdactDetails">
+            <div class="AllImg">
+                <img id="mainImg"
+                    src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                    alt="">
+                <div class="courseImg">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                        alt="">
+                </div>
+            </div>
+            <div class="productTitel">
+                <h4>KOKKO M1pro / MIX SE PLUS / x8 Mobile Controller Gaming Keyboard Mouse Converter Pubg Mobile
+                    Controller Gamepad 5.0 Adapter</h4>
+                <div class="share">
+                    <div>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-share-nodes"></i>
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                </div>
+                <p>Brand: <a href="#">No BrandMore Computer Accessories from No Brand</a></p>
+                <div class="taka">
+                    <h2>BT 865 </h2>
+                    <p>BT1,200</p>
+                    <span>-28%</span>
+                </div>
+                <hr>
+                <div class="buyBtnColar">
+                    <p>Color Family <span>Black</span></p>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                            alt="">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                            alt="">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                            alt="">
+                    </div>
+                    <div style="display: none;">
+                        <p>Quantity</p>
+                        <div><i class="fa-solid fa-minus"></i>
+                            <p>1</p><i class="fa-solid fa-plus"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <button>Buy Now</button>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ProdactDetails">
+            <p>Product details of KOKKO M1pro / MIX SE PLUS / x8 Mobile Controller Gaming Keyboard Mouse Converter Pubg
+                Mobile Controller </p>
+            <div>
+                <ul>
+                    <li>BT5.0 connection,stable signal,not occupy charging port or headphone port,convenient to use.
+                    </li>
+                    <li>Built-in quick reporting shortcut,report player unknown's battleground in real time.</li>
+                </ul>
+                <ul>
+                    <li>Press mouse middle wheel to control the mouse cursor,all operations in the game can be achieved.
+                        Support one-key continuous .</li>
+                    <li>Adopt cloud key mapping technology,default key mapping auto-match,support a variety of phone
+                        models.</li>
+                    <li>For senior players,you can customize keys via APP to fit your habit.</li>
+                </ul>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                    alt="">
+                <video src="https://youtu.be/AhYnDYzPUbM?si=HGjasIWMcn7ct1O-" o></video>
+            </div>
+        </div>
+        <div class="RatingsReviews">
+            <p>Ratings & Reviews of KOKKO M1pro / MIX SE PLUS / x8 Mobile Controller Gaming Keyboard Mouse Converter
+                Pubg Mobile Contr</p>
+            <div class="Ratings">
+                <div>
+                    <div>
+                        <h1>4.7</h1>
+                        <h3>/5</h3>
+                    </div>
+                    <div>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>125 Ratings</p>
+                </div>
+            </div>
+            <div class="colam">
+                <p>Product Reviews</p>
+                <p>Sort:Relevance</p>
+                <p>Filter:All star</p>
+            </div>
+            <div class="comment">
+                <div><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i></div>
+                <div class="UserId">
+                    <i class="fa-solid fa-user"></i>
+                    <p>SK A.</p>
+                    <span>Verified Purchase</span>
+                </div>
+                <h4>আমি এইটা বিগত চারদিন ইউজ করছি এখনো কোন সমস্যা পাই নাই আশা করি কোন সমস্যা হবে না 🥰🥰 এটা অনেক ভালো
+                    সার্ভিস দেয় 🥰👍</h4>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                        alt="">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
+                        alt="">
+                </div>
+                <p class="ColorFamily">Color Family: <span>Black</span></p>
+                <div class="lick">
+                    <i class="fa-regular fa-thumbs-up"></i>
+                    <p>(28)</p>
+                </div>
+            </div>
+            <div class="ViewAll"><a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a></div>
+        </div>
+        <div class="recommendation">
+            <div class="section-title">
+                <h2>You may also like</h2>
+            </div>
+            <div class="recommendationprodact">
+            </div>
+            <div class="ViewAll"><a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ShopSphere</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">ShopSphere Wholesale</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Sell on ShopSphere</h3>
+                    <ul>
+                        <li><a href="#">Sell Online</a></li>
+                        <li><a href="#">Become a Seller</a></li>
+                        <li><a href="#">Fulfillment by ShopSphere</a></li>
+                        <li><a href="#">Advertise Your Products</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h3>Stay Connected</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-newsletter">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get the latest updates on new products, special offers, and exclusive discounts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 ShopSphere. All Rights Reserved.</p>
+                <p>Terms of Service | Privacy Policy | Accessibility Statement</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="cart-sidebar popup" id="cart-sidebar">
+        <div class="cart-header">
+            <h2>Your Shopping Cart</h2>
+            <button class="close-cart" onclick="closePopup('cart-sidebar')" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="add-Address" onclick="showPopup('addAddress')">
+            <i class="fas fa-location"></i>
+            <h3>Add Your Address</h3>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-item">
+            </div>
+        </div>
+            <div id="addressDisplay">
+                <h3>আপনার ঠিকানা:</h3>
+                <div id="addressContent">
+                    <p class="No-Address">No Address</p>
+                </div>
+            </div>
+        <div class="cart-summary" id="cart-summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>BDT 00</span>
+            </div>
+            <div class="summary-row">
+                <span>Shipping</span>
+                <span>BDT 00</span>
+            </div>
+            <div class="summary-row">
+                <span>Tax</span>
+                <span>BDT 00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span>BDT 00</span>
+            </div>
+            <button class="checkout-btn">Confirm</button>
+        </div>
+    </div>
+    <div id="addAddress" class="addAddresscontainer popup">
+        <div class="bg-white rounded-lg shadow-lg overflow-scroll">
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 p-6 text-white" style="display: flex; justify-content: space-between;">
+                <div>
+                    <h1 class="text-2xl font-bold">আপনার ঠিকানা দিন</h1>
+                    <p class="text-blue-100 mt-1">আমরা আপনার ঠিকানা সংরক্ষণ করবো</p>
+                </div>
+                <button class="close-cart" onclick="closePopup('addAddress')" id="close-cart" style="margin-top: -45px;">
+                    <i class="fas fa-times"></i>
+            </button>
+            </div>
+
+            <div class="p-6">
+                <form id="addressForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">নাম <span
+                                    class="text-red-500">*</span></label>
+                            <input type="text" id="name" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
+                        </div>
+
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">ফোন নাম্বার
+                                <span class="text-red-500">*</span></label>
+                            <input type="tel" id="phone" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="country" class="block text-sm font-medium text-gray-700 mb-1">দেশ <span
+                                    class="text-red-500">*</span></label>
+                            <select id="country" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white transition duration-200">
+                                <option value="">দেশ সিলেক্ট করুন</option>
+                                <option value="Bangladesh">বাংলাদেশ</option>
+                                <option value="India">ভারত</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700 mb-1">সিটি <span
+                                    class="text-red-500">*</span></label>
+                            <select id="city" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white transition duration-200">
+                                <option value="">আগে দেশ সিলেক্ট করুন</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="district" class="block text-sm font-medium text-gray-700 mb-1">জেলা <span
+                                    class="text-red-500">*</span></label>
+                            <select id="district" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white transition duration-200">
+                                <option value="">আগে সিটি সিলেক্ট করুন</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="upazila" class="block text-sm font-medium text-gray-700 mb-1">উপজেলা <span
+                                    class="text-red-500">*</span></label>
+                            <select id="upazila" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white transition duration-200">
+                                <option value="">আগে জেলা সিলেক্ট করুন</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="village" class="block text-sm font-medium text-gray-700 mb-1">গ্রাম <span class="text-red-500">*</span></label>
+                        <input type="text" id="village" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200">
+                    </div>
+
+                    <div class="pt-4" id="submitBtn">
+                        <button type="button" class="btn-secondary" onclick="closePopup('addAddress')">Cancel</button>
+                        <button type="submit"class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-200 flex items-center" >
+                            <i class="fas fa-save mr-2"></i>
+                            সেভ করুন
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Login/Register Modal -->
+    <div class="modal popup" id="auth-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closePopup('auth-modal')" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <h2 id="modal-title">Login to Your Account</h2>
+            </div>
+            <form id="auth-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" required>
+                </div>
+                <div class="form-group" id="name-group" style="display: none;">
+                    <label for="name">Full Name</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closePopup('auth-modal')" id="cancel-btn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="auth-submit">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="UserAccount">
+        <button id="login-link">login</button>
+        <button id="register-link">register</button>
+    </div>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Product added to cart successfully!</span>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
